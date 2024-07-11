@@ -8,6 +8,6 @@ The initial idea was to use a very compact model for generating short digests. T
 
 For scrapping -- instead of the BeautifulSoup package for data collection, I tried using Newspaper3k/4k, but in the news feed, it refused to collect publication dates from `newspaper.build()` without first downloading the actual articles. So i would still have to use BeautifulSoup or some other package for parsing.
 
-Next maybe i'll put it on cron and make as a regular email or tg message.
+Next maybe i'll put it on cron and make as a regular email or tg messageof wrap it into a web app with flask.
 
 [![what it looks like](https://i.postimg.cc/mk2PLvwY/temp-Imageo-SWYO1.avif)](https://postimg.cc/jwmxvkB2)
