@@ -87,34 +87,34 @@ def process_links(links):
     return all_results
 
 
-# This code is adapted from source: https://github.com/bdytx5/m1_mistral_local/blob/148e84069ff322da462e5f713ad28f16bb5c2256/ollama_py.py
 def get_response(prompt, model="mistral"):
     url = "http://localhost:11434/api/generate"
-    data = {
-        "model": model,
-        "prompt": prompt
-    }
-    
-    try:
-        response = requests.post(url, json=data, stream=True)
-        response.raise_for_status()
-        
-        full_response = ""
-        for line in response.iter_lines(decode_unicode=True):
-            if line:
-                try:
-                    response_data = json.loads(line)
-                    full_response += response_data.get("response", "")
-                    if response_data.get("done", False):
-                        break
-                except json.JSONDecodeError:
-                    print(f"Failed to decode JSON: {line}")
-        
-        return full_response.strip()
-    
-    except requests.RequestException as e:
-        print(f"Failed to generate request: {e}")
+    data = {"model": model, "prompt": prompt}
+
+    def fetch_data():
+        try:
+            return requests.post(url, json=data, stream=True)
+        except requests.RequestException as e:
+            print(f"Failed to generate request: {e}")
+            return None
+
+    response = fetch_data()
+    if not response or response.status_code != 200:
         return None
+
+    full_response = ""
+    for line in response.iter_lines(decode_unicode=True):
+        if not line:
+            continue
+        try:
+            response_data = json.loads(line)
+            full_response += response_data.get("response", "")
+            if response_data.get("done", False):
+                break
+        except json.JSONDecodeError:
+            print(f"Failed to decode JSON: {line}")
+
+    return full_response.strip() if full_response else None
 
 
 def run_input(text):
