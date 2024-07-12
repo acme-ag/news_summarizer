@@ -1,6 +1,4 @@
 # news_summarizer
-A simple news summarizer
-
 
 A simple summarizer for news, blog posts, or articles. It retrieves a list of updated content from a news site, iterates through articles published within the past 7 days, and feeds each article sequentially to an LLM (in this case, Mistral 7B). The LLM generates summaries of the articles and returns a list of summaries along with their corresponding links.
 
