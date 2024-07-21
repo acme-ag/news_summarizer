@@ -1,3 +1,8 @@
+# small news summarizer
+# edit relevant classes and other elements that are specific for a site
+# first run: creates empty data.json file. Edit it to add resources (say, news lists) in .json format
+# all the following runs it checks for updates and summarizes
+
 import requests
 from bs4 import BeautifulSoup
 from dateutil.parser import parse
