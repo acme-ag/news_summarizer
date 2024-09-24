@@ -1,5 +1,12 @@
 # news_summarizer
 
+-------
+
+Update: dhere's small safari extension. https://github.com/acme-ag/news_summarizer/tree/main/SafariExt
+Still need local llm though
+
+-------
+
 A simple summarizer for news, blog posts, or articles. It retrieves a list of updated content from a news site, iterates through articles published within the past 7 days, and feeds each article sequentially to an LLM (in this case, Mistral 7B). The LLM generates summaries of the articles and returns a list of summaries along with their corresponding links.
 
 The initial idea was to use a compact model for generating short text summaries for websites that you wouldn't usually visit every day or even every week. These are small sites where updates happen infrequently but can be important. For me, these are sites about rocket launches - you wouldn't check them every day, so it's easy to miss updates. And email subscriptions don't provide text summaries and eventually lead to too many emails, making them less significant.
