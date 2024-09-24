@@ -2,8 +2,12 @@
 
 -------
 
-Update: dhere's small safari extension. https://github.com/acme-ag/news_summarizer/tree/main/SafariExt
+Update: here's small safari extension. https://github.com/acme-ag/news_summarizer/tree/main/SafariExt
 Still need local llm though
+
+![news summarizer ext 1](ns-ext_1.jpg)
+
+![news summarizer ext 2](ns-ext_2.jpg)
 
 -------
 
