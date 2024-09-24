@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+  "default_locale": "en",
+  "name": "News Summarizer",
+  "description": "Summarizes news articles on the web using Mistral 7b",
+  "version": "1.0",
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/icon-16.png",
+      "32": "/icon-32.png",
+      "48": "/icon-48.png",
+      "128": "/icon-128.png"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "permissions": [
+    "activeTab",
+    "nativeMessaging",
+    "tabs",
+    "http://localhost:11434/"
+  ],
+  "host_permissions": [
+    "http://localhost:11434/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "content_security_policy": "connect-src http://localhost:11434/ 'self';"
+}

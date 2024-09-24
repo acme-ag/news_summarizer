@@ -1,0 +1,70 @@
+:root {
+    color-scheme: light dark;
+}
+
+/* popup.css */
+html, body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 350px;
+/*    height: 450px;*/
+    padding: 15px;
+    box-sizing: border-box;
+    font-family: -apple-system, Geneva;
+}
+
+.gen_content {
+    width: auto;
+    display: block;
+}
+
+h1 {
+    font-size: 20px;
+    color: #333;
+}
+
+#summary {
+    font-size: 10pt;
+}
+
+button {
+    background-color: #007aff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #005fbc;
+}
+
+#loading {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#copy {
+    display: none; /* initially hidden */
+    position: fixed;
+    right: 10px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+#copy img {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+/*#loading img {
+    width: auto;
+    height: 50px;
+}*/
