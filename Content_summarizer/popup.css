@@ -1,0 +1,92 @@
+:root {
+    color-scheme: light dark;
+}
+
+html, body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 350px;
+    padding: 15px;
+    box-sizing: content-box;
+    font-family: -apple-system, Geneva;
+}
+
+.gen_content {
+    width: auto;
+    display: block;
+}
+
+h1 {
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+}
+
+#summary {
+    font-size: 10pt;
+    margin-top: 15px;
+}
+
+button {
+    background-color: #808080;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #666666;
+}
+
+#loading {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#copy {
+    display: none;
+    position: relative;
+    right: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 0;
+    margin: 5px;
+    float: right;
+    width: auto;
+}
+
+#copy img {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.controls {
+    display:flex;
+}
+.controls button {
+    width: auto;
+}
+
+#summarize-mistral {
+    margin-right: 5px;
+}
+
+#summarize-chatgpt{
+    margin-left:5px;
+}
+
+#version {
+    font-size: 10px;
+    color: #888;
+    text-align: center;
+    margin-top: 10px;
+}

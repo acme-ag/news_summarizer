@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content summarizer</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class='gen_content'>
+        <h1>Summarize content</h1>
+        <div class="controls">
+            <button id="summarize-mistral">With Mistral 7B</button>
+            <button id="summarize-chatgpt">With ChatGPT</button>
+        </div>
+        <div id="summary"></div>
+        
+        <button id="copy">
+            <img src="/copy.png" alt="Copy to Clipboard" />
+        </button>
+        <div id="version">v4.0</div>
+        <script src="popup.js"></script>
+    </div>
+    <div id="loading" style="display: none;">
+        <img src="/loading.gif" alt="Loading...">
+    </div>
+</body>
+</html>
