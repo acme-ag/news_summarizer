@@ -2,8 +2,15 @@
 
 -------
 
-Update: here's small safari extension. https://github.com/acme-ag/news_summarizer/tree/main/SafariExt
-Still need local llm though
+Update: here's small safari extension: [SafariExt](https://github.com/acme-ag/news_summarizer/tree/54567812c4c5951888f1e32f77f7633f1b81cb42/SafariExt )
+~~Still need local llm though~~ not anymore:
+
+Upd 2:
+Here one can choose to use either local LLM or ChatGPT API (faster but not for free): [Content_summarizer](https://github.com/acme-ag/news_summarizer/tree/54567812c4c5951888f1e32f77f7633f1b81cb42/Content_summarizer)
+
+
+
+
 
 ![news summarizer ext 1](Balloon_Ride_to_Space_1.jpg)
 
