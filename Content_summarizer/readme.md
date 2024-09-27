@@ -7,7 +7,7 @@ Now one can choose what model to use:
 I can't say there's a great difference in quality of performance. What's good -- it almost omnivorous, so far I see  it stumbles on the very old sites or some social media platfforms where it's confusing what part has higher weight -- post or comment. Sometimes it needs to tinker the content selector in content.js. Anyway, I made it for practice and to make summaries of longer and verbose texts comfortably.
 
 
-----------------
+
 ![content summarizer](Balloon_Ride_to_Space_1.jpg)
 
 
@@ -15,5 +15,6 @@ I can't say there's a great difference in quality of performance. What's good --
 **With Mistral 7B**
 ![content summarizer](Balloon_Ride_to_Space_Mistral.jpg)
 
+----------------
 **With ChatGPT 4o-mini**
 ![content summarizer](Balloon_Ride_to_Space_GPT.jpg)
