@@ -12,9 +12,9 @@ I can't say there's a great difference in quality of performance. What's good --
 
 
 ---------------
-**With Mistral 7B**
+### With Mistral 7B
 ![content summarizer](Balloon_Ride_to_Space_Mistral.jpg)
 
 ----------------
-**With ChatGPT 4o-mini**
+### With ChatGPT 4o-mini
 ![content summarizer](Balloon_Ride_to_Space_GPT.jpg)
