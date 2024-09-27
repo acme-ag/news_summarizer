@@ -3,7 +3,6 @@ console.log('Content script loaded');
 function extractMainContent() {
     console.log('Extracting content from page');
     
-    // set add more elsectorsa
     const selectors = [
       'article', 'main', '.post', '.entry-content', '.article-body', '#content', '.content',
       '.post-content', '.single-post', '.entry', '.article', '.prose', '.entry-content',
@@ -21,8 +20,12 @@ function extractMainContent() {
       for (let child of element.childNodes) {
         if (child.nodeType === Node.TEXT_NODE) {
           text += child.textContent.trim() + ' ';
-        } else if (child.nodeType === Node.ELEMENT_NODE && !['script', 'style', 'nav', 'header', 'footer', 'aside', 'figure', 'blockquote'].includes(child.tagName.toLowerCase())) {
-          text += getTextContent(child) + ' ';
+        } else if (child.nodeType === Node.ELEMENT_NODE) {
+          // Ignore content from specific tags
+          const ignoredTags = ['script', 'style', 'nav', 'header', 'footer', 'aside', 'figure', 'blockquote', 'iframe'];
+          if (!ignoredTags.includes(child.tagName.toLowerCase())) {
+            text += getTextContent(child) + ' ';
+          }
         }
       }
       return text.trim();
@@ -32,9 +35,24 @@ function extractMainContent() {
       const text = getTextContent(element);
       const wordCount = text.split(/\s+/).length;
       const linkDensity = element.getElementsByTagName('a').length / wordCount;
-      const imageCount = element.getElementsByTagName('img').length;  // penalize image-heavy content
-      const readabilityScore = wordCount * (1 - linkDensity - 0.1 * imageCount);  // adjust the scoring
-      return readabilityScore;
+      const imageCount = element.getElementsByTagName('img').length;
+      
+      // penalize elements with high link density or too many images
+      const readabilityScore = wordCount * (1 - linkDensity - 0.1 * imageCount);
+      
+      // Bonus for elements with certain classes or IDs
+      const bonusClasses = ['article', 'post', 'entry', 'content'];
+      const bonusIds = ['main-content', 'article-body', 'post-content'];
+      
+      let bonus = 0;
+      bonusClasses.forEach(className => {
+        if (element.classList.contains(className)) bonus += 50;
+      });
+      bonusIds.forEach(id => {
+        if (element.id === id) bonus += 100;
+      });
+      
+      return readabilityScore + bonus;
     }
   
     // try each selector 1 by 1
@@ -49,7 +67,7 @@ function extractMainContent() {
       }
     }
   
-    // if no content found -- fall back to body text
+    // If no content found, fall back to body text
     if (!bestElement) {
       console.log('No specific content area found, using body text');
       bestElement = document.body;
@@ -57,11 +75,11 @@ function extractMainContent() {
   
     let content = getTextContent(bestElement);
   
-    // clean up the content
+    // Clean up the content
     content = content.replace(/\s+/g, ' ').trim();
-    content = content.replace(/\[.*?\]/g, ''); // remove square brackets content
-    content = content.replace(/\(https?:\/\/[^\s\)]+\)/g, ''); // here remove URLs in parentheses
-    content = content.replace(/Related Articles|You may also like/gi, ''); // filter common unrelated sections (we want main body texxt in the summary. That's mostly for Mistral, since it has some difficulties with distinguishing main body text and ads, related and other texts if they are in the same content element as main text.
+    content = content.replace(/\[.*?\]/g, ''); // Remove square brackets content
+    content = content.replace(/\(https?:\/\/[^\s\)]+\)/g, ''); // Remove URLs in parentheses
+    content = content.replace(/Related Articles|You may also like|Editor's picks|Editor's choice|Recommended|Trending Now|Popular Stories|More From|Suggested Reading|Top Stories|In Case You Missed It|From Around the Web|Sponsored Content|Featured Articles|Most Read|Similar Stories|Explore Further/gi, ''); // filter common unrelated sections/blocks
   
     console.log('Extracted content length:', content.length);
     return content;
@@ -76,5 +94,5 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
         console.log('Sending response with content length:', content.length);
         sendResponse({ text: content });
     }
-    return true; // enable async. response
+    return true; // enable async response
 });

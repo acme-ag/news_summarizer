@@ -3,7 +3,7 @@
   "default_locale": "en",
   "name": "Content summarizer",
   "description": "Summarizes news articles on the web using Mistral 7B or ChatGPT API",
-  "version": "4.0",
+  "version": "4.1",
   "browser_action": {
     "default_popup": "popup.html",
     "default_icon": {

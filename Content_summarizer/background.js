@@ -43,10 +43,10 @@ function summarizeWithMistral(content, sendResponse) {
 }
 
 function summarizeWithChatGPT(content, sendResponse) {
-  const apiKey = 'YOUR_API_KEY';  // Replace with your OpenAI API key for selected model
+  const apiKey ='YOR_API_HERE';  // replace with your OpenAI API key for selected model
 
   const chatgptRequest = {
-    model: "gpt-4o-mini",  // You can also use "gpt-3.5-turbo" or "gpt-4", "gpt-4o" if you prefer. check platform.openai.com
+    model: "gpt-4o-mini",  // you can also use "gpt-3.5-turbo" or "gpt-4", "gpt-4o" if you prefer. check platform.openai.com
     messages: [
       { role: "system", content: "You are a helpful assistant that summarizes news articles." },
       { role: "user", content: `Summarize the following text:\n\n${content}` }
@@ -81,5 +81,5 @@ function summarizeWithChatGPT(content, sendResponse) {
     sendResponse({ error: `Failed to generate summary. Error: ${error.message}` });
   });
 
-  return true;  // Indicate asynchronous response
+  return true;  // Indicate asynchronous response -
 }
