@@ -33,11 +33,11 @@ Next maybe i'll put it on cron and make as a regular email or tg messageof wrap 
 
 
 <!-- Google tag (gtag.js) -->
-<!--<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQC5Y5R3G9"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQC5Y5R3G9"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-FQC5Y5R3G9');
-</script>-->
+</script>
