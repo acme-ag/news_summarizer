@@ -30,14 +30,3 @@ Next maybe i'll put it on cron and make as a regular email or tg messageof wrap 
 
 [![what it looks like](https://i.postimg.cc/mk2PLvwY/temp-Imageo-SWYO1.avif)](https://postimg.cc/jwmxvkB2)
 
-
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQC5Y5R3G9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-FQC5Y5R3G9');
-</script>
